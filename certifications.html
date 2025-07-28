@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certifications</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .certifications-section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+    }
+
+    .section-title {
+      font-size: 28px;
+      text-align: center;
+      color: goldenrod;
+      margin-bottom: 30px;
+    }
+
+    .tab-buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .tab-buttons button {
+      background: transparent;
+      border: 2px solid goldenrod;
+      color: goldenrod;
+      padding: 10px 18px;
+      border-radius: 8px;
+      margin: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .tab-buttons button:hover {
+      background: goldenrod;
+      color: black;
+    }
+
+    .tab-buttons .active {
+      background: goldenrod;
+      color: black;
+    }
+
+    .cert-content {
+      display: flex;
+      justify-content: center;
+    }
+
+    .cert-tab {
+      display: none;
+      text-align: center;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .cert-tab img {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 15px;
+      border: 2px solid goldenrod;
+      box-shadow: 0 0 10px rgba(218, 165, 32, 0.3);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <section class="certifications-section">
+    <h2 class="section-title">🎓 My Certifications</h2>
+
+    <div class="tab-buttons">
+      <button onclick="showTab('cert1')" id="btn-cert1">Python (NPTEL)</button>
+      <button onclick="showTab('cert2')" id="btn-cert2">English (NPTEL)</button>
+      <button onclick="showTab('cert3')" id="btn-cert3">AI (HP Life)</button>
+    </div>
+
+    <div class="cert-content">
+      <div class="cert-tab" id="cert1">
+        <h3>Joy of Computing with Python</h3>
+        <img src="NPTEL-PYTHON.jpg" alt="Python Certificate">
+      </div>
+      <div class="cert-tab" id="cert2">
+        <h3>Technical English</h3>
+        <img src="NPTEL-TECHNICAL ENGLISH.jpg" alt="English Certificate">
+      </div>
+      <div class="cert-tab" id="cert3">
+        <h3>AI for Beginners</h3>
+        <img src="HP LIFE-AI FOR BEGINNERS.jpg" alt="AI Certificate">
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('.cert-tab').forEach(tab => tab.style.display = 'none');
+      document.querySelectorAll('.tab-buttons button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(id).style.display = 'block';
+      document.getElementById('btn-' + id).classList.add('active');
+    }
+    window.onload = () => showTab('cert1');
+  </script>
+</body>
+</html>
